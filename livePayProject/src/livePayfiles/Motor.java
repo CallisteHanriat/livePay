@@ -3,7 +3,7 @@ package livePayfiles;
 public class Motor {
 
 	Interface gui;
-	Salaire pay;
+	Salaire salaire;
 	Duree duree;
 
         /**
@@ -11,7 +11,7 @@ public class Motor {
          */
         public Motor() {
             gui = new Interface();
-            pay = new Salaire();
+            salaire = new Salaire();
         }
         
         /**
@@ -19,6 +19,7 @@ public class Motor {
          */
 	public void InitializationPay() {
             gui.askSalaire();
+            gui.saySomethingTo("Vous avez choisi : " + this.salaire.getPay() + "€");
 	}
 
 	public void liveUpdate() {

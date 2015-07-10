@@ -2,12 +2,16 @@ package livePayfiles;
 
 public class Salaire {
 
-	private double salaire = 0;
+	private double montant = 0;
 	private Duree typeSalaire;
-	private double payPerSecond;
+	private double montantPerSecond;
 
+        //CONSTRUCTORS
 	public Salaire() {
-            salaire = 0.0;
+            this.montant = 0.0;
+            
+            //Automatic for the begening of the project : it's a prototype
+            typeSalaire = Duree.An;
         }
 
 	/**
@@ -15,39 +19,36 @@ public class Salaire {
 	 * @param payForAMonth
 	 */
 	public Salaire(double payForAMonth) {
-            salaire = payForAMonth;
+            this.montant = payForAMonth;
         }
 
-	/**
-	 * 
-	 * @param pay
-	 * @param typePaye
-	 */
-	public void entryPay(double pay, Duree typePaye) {
-		// TODO - implement Salaire.entryPay
-		throw new UnsupportedOperationException();
-	}
 
+        
+        //SETTERS
 	/**
 	 * 
 	 * @param pay
 	 */
 	public void setPay(double pay) {
-		// TODO - implement Salaire.setPay
-		throw new UnsupportedOperationException();
+            this.montant = pay;
 	}
 
+        
+        //GETTERS
+        /**
+         * 
+         * @return the value of the montant
+         */
 	public double getPay() {
-		// TODO - implement Salaire.getPay
-		throw new UnsupportedOperationException();
+            return this.montant;
 	}
 
 	/**
-	 * 
+	 * to cr
 	 * @param pay
 	 */
 	public void setPayPerSecond(double pay) {
-		this.payPerSecond = pay;
+		this.montant = pay;
 	}
 
 }

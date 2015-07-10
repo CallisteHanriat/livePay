@@ -13,9 +13,12 @@ public class Interface {
             moteur = new Motor();
 	}
 
-	public void saySomethingTo() {
-		// TODO - implement Interface.saySomethingTo
-		throw new UnsupportedOperationException();
+        /**
+         * just used to dialog something to user
+         * @param contenu is what the application wants to say
+         */
+	public void saySomethingTo(String contenu) {
+            System.out.println(contenu);
 	}
 
 	/**
@@ -25,7 +28,7 @@ public class Interface {
         public void askSalaire() {
             System.out.println("Entrez votre salaire annuel : ");
             pay = sc.nextDouble();
-            moteur.pay.setPay(pay);
+            moteur.salaire.setPay(pay);
         }
 
 }
