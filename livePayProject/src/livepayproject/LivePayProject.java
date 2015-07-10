@@ -18,6 +18,7 @@ public class LivePayProject {
      */
     public static void main(String[] args) {
         Motor moteur = new Motor();
+        moteur.InitializationPay();
     }
     
 }

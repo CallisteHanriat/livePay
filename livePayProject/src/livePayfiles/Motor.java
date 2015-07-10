@@ -6,9 +6,19 @@ public class Motor {
 	Salaire pay;
 	Duree duree;
 
+        /**
+         * constructor for the construction of Motor.
+         */
+        public Motor() {
+            gui = new Interface();
+            pay = new Salaire();
+        }
+        
+        /**
+         * ask to the user to set his pay.
+         */
 	public void InitializationPay() {
-		// TODO - implement Motor.InitializationPay
-		throw new UnsupportedOperationException();
+            gui.askSalaire();
 	}
 
 	public void liveUpdate() {

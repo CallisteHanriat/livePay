@@ -7,18 +7,16 @@ public class Salaire {
 	private double payPerSecond;
 
 	public Salaire() {
-		// TODO - implement Salaire.Salaire
-		throw new UnsupportedOperationException();
-	}
+            salaire = 0.0;
+        }
 
 	/**
 	 * 
 	 * @param payForAMonth
 	 */
 	public Salaire(double payForAMonth) {
-		// TODO - implement Salaire.Salaire
-		throw new UnsupportedOperationException();
-	}
+            salaire = payForAMonth;
+        }
 
 	/**
 	 * 

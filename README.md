@@ -21,6 +21,8 @@ User choose the time to update his pay. He choice is in second. (setLapTime or s
  		-user have to choose his pay for a month (first version).
  	many other things in others releases.
  	
+ 	CLASS SALAIRE
+ 	-------------
  	
  	
 
