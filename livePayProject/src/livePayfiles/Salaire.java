@@ -1,4 +1,4 @@
-package livePay;
+package livePayfiles;
 
 public class Salaire {
 
