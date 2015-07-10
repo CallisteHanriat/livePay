@@ -14,11 +14,13 @@ User choose the time to update his pay. He choice is in second. (setLapTime or s
  	Permits to the program to run operation.
  	Launched by the menuClass
  	
- 	CLASS MENU
+ 	CLASS INTERFACE
  	----------
  	Shows different questions and use case:
  	-if user wants to launch a calcul
- 		-user have to choose his pay and the timelaps.
+ 		-user have to choose his pay for a month (first version).
  	many other things in others releases.
+ 	
+ 	
  	
 
