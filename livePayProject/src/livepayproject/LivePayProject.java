@@ -5,7 +5,8 @@
  */
 package livepayproject;
 
-import livePayfiles.Motor;
+import files.Interface;
+import files.Motor;
 
 /**
  *
@@ -18,7 +19,9 @@ public class LivePayProject {
      */
     public static void main(String[] args) {
         Motor moteur = new Motor();
+        moteur.setGui(new Interface());
+        moteur.getGui().setMoteur(moteur);
         moteur.InitializationPay();
     }
-    
+
 }
