@@ -22,7 +22,8 @@ public class Motor {
         * and ask to user his entry
         */
         public void InitializationPay() {
-            gui.askSalaire();
+            this.salaire.setPay(gui.askSalaire());
+            this.salaire.calculMontantPerSecond();
             gui.saySomethingTo("Vous avez choisi : " + this.salaire.getPay() + "€ / " + this.salaire.getTypeSalaire().toString());
         }
 
@@ -31,8 +32,14 @@ public class Motor {
          *ask time to user time to update (month by default)
          * 
          */
-	public void liveUpdate() {
-            
+	public void liveUpdate() throws InterruptedException {
+            //print 60 evolutions of the calcul
+            double add = 0.;
+            for (int i = 1; i<=30 ; i++) {
+                Thread.sleep(this.salaire.getUpDateTime()*1000);
+                add = add + this.salaire.getMontantPerSecond()*this.salaire.getUpDateTime();
+                gui.saySomethingTo("au bout de " + i*this.salaire.getUpDateTime() + " secondes vous avez gagné : " + add + "€.");
+            }
         }
 
         //GETTERS

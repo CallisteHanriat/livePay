@@ -5,12 +5,14 @@ public class Salaire {
 	private double montant = 0;
 	private Duree typeSalaire;
 	private double montantPerSecond;
+        private int upDateTime;
         
         //CONSTRUCTORS
 	public Salaire() {
             this.montant = 0.0;
             //Automatic for the begening of the project : it's a prototype
             typeSalaire = Duree.An;
+            upDateTime = 2;
         }
 
 	/**
@@ -21,7 +23,12 @@ public class Salaire {
             this.montant = payForAMonth;
         }
 
-
+        /**
+         * the goal of this method is to calcul what the pay is per one second
+         */
+        public void calculMontantPerSecond() {
+            this.setMontantPerSecond(this.montant/(365*3600*24));
+        }
         
         //SETTERS
 	/**
@@ -34,10 +41,10 @@ public class Salaire {
 
 	/**
 	 * to cr
-	 * @param pay
+	 * @param arg
 	 */
-	public void setPayPerSecond(double pay) {
-		this.montant = pay;
+	private void setMontantPerSecond(double arg) {
+		this.montantPerSecond = arg;
 	}
     
         //GETTERS
@@ -51,6 +58,14 @@ public class Salaire {
 
         public Duree getTypeSalaire() {
             return typeSalaire;
+        }
+
+        public int getUpDateTime() {
+            return upDateTime;
+        }
+
+        public double getMontantPerSecond() {
+            return montantPerSecond;
         }
 
         

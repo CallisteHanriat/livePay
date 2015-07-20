@@ -29,10 +29,10 @@ public class Interface {
          * frontEnd : ask to the user for the input.
          * and set the pay of the moteur
          */
-        public void askSalaire() {
+        public double askSalaire() {
             System.out.println("Entrez votre salaire annuel : ");
             pay = sc.nextDouble();
-            moteur.getSalaire().setPay(pay);
+            return pay;
         }
 
 }

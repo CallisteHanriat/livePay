@@ -16,12 +16,14 @@ public class LivePayProject {
 
     /**
      * @param args the command line arguments
+     * @throws java.lang.InterruptedException
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Motor moteur = new Motor();
         moteur.setGui(new Interface());
         moteur.getGui().setMoteur(moteur);
         moteur.InitializationPay();
+        moteur.liveUpdate();
     }
 
 }
