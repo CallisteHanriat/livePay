@@ -4,7 +4,6 @@ public class Motor {
 
 	private Interface gui;
 	private Salaire salaire;
-	private Duree duree;
 
         /**
          * constructor for the construction of Motor.
@@ -20,17 +19,21 @@ public class Motor {
 
         /**
         * ask to the user to set his pay.
+        * and ask to user his entry
         */
         public void InitializationPay() {
             gui.askSalaire();
-            gui.saySomethingTo("Vous avez choisi : " + this.salaire.getPay() + "€");
+            gui.saySomethingTo("Vous avez choisi : " + this.salaire.getPay() + "€ / " + this.salaire.getTypeSalaire().toString());
         }
 
         //AUTRE
+        /**
+         *ask time to user time to update (month by default)
+         * 
+         */
 	public void liveUpdate() {
-		// TODO - implement Motor.liveUpdate
-		throw new UnsupportedOperationException();
-	}
+            
+        }
 
         //GETTERS
         public Salaire getSalaire() {

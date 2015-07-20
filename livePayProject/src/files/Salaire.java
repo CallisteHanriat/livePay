@@ -5,11 +5,10 @@ public class Salaire {
 	private double montant = 0;
 	private Duree typeSalaire;
 	private double montantPerSecond;
-
+        
         //CONSTRUCTORS
 	public Salaire() {
             this.montant = 0.0;
-            
             //Automatic for the begening of the project : it's a prototype
             typeSalaire = Duree.An;
         }
@@ -33,6 +32,13 @@ public class Salaire {
             this.montant = pay;
 	}
 
+	/**
+	 * to cr
+	 * @param pay
+	 */
+	public void setPayPerSecond(double pay) {
+		this.montant = pay;
+	}
     
         //GETTERS
         /**
@@ -43,12 +49,10 @@ public class Salaire {
             return this.montant;
 	}
 
-	/**
-	 * to cr
-	 * @param pay
-	 */
-	public void setPayPerSecond(double pay) {
-		this.montant = pay;
-	}
+        public Duree getTypeSalaire() {
+            return typeSalaire;
+        }
 
+        
+        
 }
