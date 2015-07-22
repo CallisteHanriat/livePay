@@ -10,13 +10,12 @@ public class Salaire {
         //CONSTRUCTORS
 	public Salaire() {
             this.montant = 0.0;
+            setUpDateTime(1);
             //Automatic for the begening of the project : it's a prototype
             typeSalaire = Duree.An;
-            upDateTime = 2;
         }
 
 	/**
-	 * 
 	 * @param payForAMonth
 	 */
 	public Salaire(double payForAMonth) {
@@ -38,6 +37,11 @@ public class Salaire {
 	public void setPay(double pay) {
             this.montant = pay;
 	}
+
+        public void setUpDateTime(int upDateTime) {
+            this.upDateTime = upDateTime;
+        }
+        
 
 	/**
 	 * to cr
