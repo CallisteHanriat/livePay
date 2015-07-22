@@ -38,13 +38,13 @@ public class Motor {
             double add = 0.;
             int j;
             
-            gui.saySomethingTo("Combien d'actualisations ? ");
+            gui.saySomethingTo("\nCombien d'actualisations ? ");
             j = gui.sc.nextInt();
             
             for (int i = 0; i<j ; i++) {
                 Thread.sleep(this.salaire.getUpDateTime()*1000);
                 add = add + this.salaire.getMontantPerSecond()*this.salaire.getUpDateTime();
-                gui.saySomethingTo("au bout de " + i*this.salaire.getUpDateTime() + " secondes vous avez gagné : " + add + "€.");
+                gui.saySomethingTo("au bout de " + i*this.salaire.getUpDateTime() + " secondes vous avez gagné : " + add + "€. \n");
             }
         }
 
