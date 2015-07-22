@@ -1,10 +1,11 @@
 package files;
 
+import java.util.Scanner;
+
 public class Motor {
 
 	private Interface gui;
 	private Salaire salaire;
-
         /**
          * constructor for the construction of Motor.
          */
@@ -35,7 +36,12 @@ public class Motor {
 	public void liveUpdate() throws InterruptedException {
             //print 60 evolutions of the calcul
             double add = 0.;
-            for (int i = 1; i<=30 ; i++) {
+            int j;
+            
+            gui.saySomethingTo("Combien d'actualisations ? ");
+            j = gui.sc.nextInt();
+            
+            for (int i = 0; i<j ; i++) {
                 Thread.sleep(this.salaire.getUpDateTime()*1000);
                 add = add + this.salaire.getMontantPerSecond()*this.salaire.getUpDateTime();
                 gui.saySomethingTo("au bout de " + i*this.salaire.getUpDateTime() + " secondes vous avez gagné : " + add + "€.");

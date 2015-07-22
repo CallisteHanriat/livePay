@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Interface {
 
 	private Motor moteur;
-        private Scanner sc;
+        public Scanner sc;
         private double pay;
         
 	public Interface() {
@@ -22,7 +22,7 @@ public class Interface {
      	* @param contenu is what the application wants to say
      	*/
     	public void saySomethingTo(String contenu) {
-        	System.out.println(contenu);
+        	System.out.print(contenu);
     	}
 
 	/**
@@ -30,7 +30,7 @@ public class Interface {
          * and set the pay of the moteur
          */
         public double askSalaire() {
-            System.out.println("Entrez votre salaire annuel : ");
+            System.out.print("Entrez votre salaire annuel : ");
             pay = sc.nextDouble();
             return pay;
         }
