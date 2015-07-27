@@ -41,8 +41,12 @@ public class Salaire {
         public void setUpDateTime(int upDateTime) {
             this.upDateTime = upDateTime;
         }
-        
 
+        public void setTypeSalaire(Duree typeSalaire) {
+            this.typeSalaire = typeSalaire;
+        }
+        
+       
 	/**
 	 * to cr
 	 * @param arg
