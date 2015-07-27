@@ -26,7 +26,22 @@ public class Salaire {
          * the goal of this method is to calcul what the pay is per one second
          */
         public void calculMontantPerSecond() {
-            this.setMontantPerSecond(this.montant/(365*3600*24));
+            switch(this.getTypeSalaire()) {
+                case An :
+                    this.setMontantPerSecond(this.montant/(365*3600*24));
+                    break;
+                case Mois : 
+                    this.setMontantPerSecond(montant/(24*3600*7*4));
+                    break;
+                case Semaine : 
+                    this.setMontantPerSecond(this.montant/(24*3600*7));
+                    break;
+                case Jour : 
+                    this.setMontantPerSecond(this.montant/(24*3600));
+                    break;
+                default : 
+                    break;
+            }
         }
         
         //SETTERS

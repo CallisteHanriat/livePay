@@ -30,7 +30,7 @@ public class Interface {
          * and set the pay of the moteur
          */
         public double askSalaire() {
-            System.out.print("Entrez votre salaire annuel : ");
+            System.out.print("Entrez votre salaire : ");
             pay = sc.nextDouble();
             return pay;
         }

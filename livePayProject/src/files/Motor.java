@@ -23,12 +23,14 @@ public class Motor {
         * and ask to user his entry
         */
         public void InitializationPay() {
-            String duree = new String("an");
+            String duree;
+            
             this.salaire.setPay(gui.askSalaire());
-            this.salaire.calculMontantPerSecond();
             gui.saySomethingTo(" par (an, mois, jour, semaine) : ");
             duree = gui.sc.nextLine();
+            duree = gui.sc.nextLine();
             this.salaire.setTypeSalaire(Duree.valueOf(duree));
+            this.salaire.calculMontantPerSecond();
             gui.saySomethingTo("Vous avez choisi : " + this.salaire.getPay() + "€ / " + this.salaire.getTypeSalaire().toString());
         }
 
