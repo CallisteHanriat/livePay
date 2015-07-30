@@ -1,5 +1,6 @@
 package files;
 
+import gui.Interface;
 import java.util.Scanner;
 
 public class Motor {

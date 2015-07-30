@@ -1,5 +1,8 @@
-package files;
+package gui;
 
+
+
+import files.*;
 import java.util.Scanner;
 
 public class Interface {

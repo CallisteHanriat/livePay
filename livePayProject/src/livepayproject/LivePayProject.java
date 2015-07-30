@@ -5,8 +5,8 @@
  */
 package livepayproject;
 
-import files.Interface;
-import files.Motor;
+import files.*;
+import gui.*;
 
 /**
  *
