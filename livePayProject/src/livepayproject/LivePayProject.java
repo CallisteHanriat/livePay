@@ -20,8 +20,8 @@ public class LivePayProject {
      */
     public static void main(String[] args) throws InterruptedException {
         Motor moteur = new Motor();
-        moteur.setGui(new Interface());
-        moteur.getGui().setMoteur(moteur);
+        moteur.setGui(new InterfaceGui());
+//        moteur.getGui().setMoteur(moteur);
         moteur.InitializationPay();
         moteur.liveUpdate();
     }
