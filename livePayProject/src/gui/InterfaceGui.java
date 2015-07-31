@@ -27,8 +27,10 @@ public class InterfaceGui extends JFrame {
     private JSpinner inputTempsIntervalle;
     private JSpinner inputActu;
     private HashMap<Duree, JRadioButton> durees;
+    private Motor moteur;
     
     public InterfaceGui() {
+        moteur = new Motor();
         durees = new HashMap<>();
         this.setLayout(new GridLayout(5,5));
         inputSalaire = new JSpinner(new SpinnerNumberModel(1000.0, 1.0, 1000000000000.0, 1.0));
@@ -53,11 +55,17 @@ public class InterfaceGui extends JFrame {
     }
     
     //GETTERS
+    /**
+     * use it to permit to the user to keep information from the GUI.
+     */
     public void getUi() {
         
     }
     
     //SETTERS
+    /**
+     * use it to permit to the interface to disp information.
+     */
     public void setUi() {
         
     }
