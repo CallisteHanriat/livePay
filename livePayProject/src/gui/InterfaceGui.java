@@ -1,15 +1,18 @@
 package gui;
 
 import files.*;
+import java.awt.CheckboxGroup;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.util.HashMap;
+import javax.swing.ButtonGroup;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
+import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 /*
@@ -28,8 +31,10 @@ public class InterfaceGui extends JFrame {
     private JSpinner inputActu;
     private HashMap<Duree, JRadioButton> durees;
     private Motor moteur;
+    private ButtonGroup choixDurees;
     
     public InterfaceGui() {
+        choixDurees = new ButtonGroup();
         moteur = new Motor();
         durees = new HashMap<>();
         this.setLayout(new GridLayout(5,5));
@@ -50,6 +55,7 @@ public class InterfaceGui extends JFrame {
         //Boucle pour entrer les JRadioButton
         for (Duree d : Duree.values()) {
             durees.put(d, new JRadioButton(d.toString()));
+            choixDurees.add(durees.get(d));
             this.add(durees.get(d));
         }
     }
