@@ -44,6 +44,8 @@ public class InterfaceGui extends JFrame {
         choixDurees = new ButtonGroup();
         moteur = new Motor();
         durees = new HashMap<>();
+        panelCheckBox = new JPanel(new GridBagLayout());
+        contrainteGrille = new GridBagConstraints();
         this.setLayout(new GridBagLayout());
         inputSalaire = new JSpinner(new SpinnerNumberModel(1000.0, 1.0, 1000000000000.0, 1.0));
         this.initUiComponant();
@@ -53,16 +55,38 @@ public class InterfaceGui extends JFrame {
      * Use it to init all ui componant to the GUI.
      */
     private void initUiComponant() {
-        this.add(new JLabel("Entrez le salaire : ")); 
-        this.add(inputSalaire);
-        this.add(new JLabel("par : "));        
+        contrainteGrille.gridx = 0;
+        contrainteGrille.gridy = 0;
+        this.add(new JLabel("Entrez le salaire : "), contrainteGrille);
+        
+        contrainteGrille.gridx = 1;
+        this.add(inputSalaire, contrainteGrille);
+        
+        contrainteGrille.gridx = 0;
+        contrainteGrille.gridy = 1;
+        this.add(new JLabel("par : "), contrainteGrille);        
         
         //Boucle pour entrer les JRadioButton
         for (Duree d : Duree.values()) {
             durees.put(d, new JRadioButton(d.toString()));
             choixDurees.add(durees.get(d));
-            this.add(durees.get(d));
         }                
+        contrainteGrille.gridx = 1;
+        this.add(this.panelCheckBox);
+        
+        this.contrainteGrille.gridx = 0;
+        this.contrainteGrille.gridy = 0;
+        this.panelCheckBox.add(this.durees.get(Duree.An), contrainteGrille);
+        
+        this.contrainteGrille.gridx = 1;
+        this.panelCheckBox.add(this.durees.get(Duree.Mois), contrainteGrille);
+        
+        this.contrainteGrille.gridx = 0;
+        this.contrainteGrille.gridy = 1;
+        this.panelCheckBox.add(this.durees.get(Duree.Semaine), contrainteGrille);
+        
+        this.contrainteGrille.gridx = 1;
+        this.panelCheckBox.add(this.durees.get(Duree.Jour), contrainteGrille);
         
         this.setSize(500, 400);        
         this.setVisible(true);
