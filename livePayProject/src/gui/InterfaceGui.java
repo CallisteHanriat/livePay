@@ -2,6 +2,7 @@ package gui;
 
 import files.*;
 import java.awt.CheckboxGroup;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -11,7 +12,9 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
+import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -20,6 +23,8 @@ import javax.swing.JRadioButton;
 import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.border.Border;
+import javax.swing.plaf.BorderUIResource;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -39,6 +44,7 @@ public class InterfaceGui extends JFrame {
     private ButtonGroup choixDurees;
     private GridBagConstraints contrainteGrille;
     private JPanel panelCheckBox;
+    private JButton boutonGo;
     
     public InterfaceGui() {
         choixDurees = new ButtonGroup();
@@ -47,6 +53,7 @@ public class InterfaceGui extends JFrame {
         panelCheckBox = new JPanel(new GridBagLayout());
         contrainteGrille = new GridBagConstraints();
         this.setLayout(new GridBagLayout());
+        boutonGo = new JButton("Go!");
         inputSalaire = new JSpinner(new SpinnerNumberModel(1000.0, 1.0, 1000000000000.0, 1.0));
         this.initUiComponant();
     }
@@ -57,22 +64,34 @@ public class InterfaceGui extends JFrame {
     private void initUiComponant() {
         contrainteGrille.gridx = 0;
         contrainteGrille.gridy = 0;
-        this.add(new JLabel("Entrez le salaire : "), contrainteGrille);
+        contrainteGrille.weightx = 1.;
+        contrainteGrille.weighty = 1.;
+        this.add(new JLabel("Entrez le salaire : ", JLabel.RIGHT), contrainteGrille);
         
         contrainteGrille.gridx = 1;
+        contrainteGrille.anchor = GridBagConstraints.WEST;
         this.add(inputSalaire, contrainteGrille);
+        contrainteGrille.anchor = GridBagConstraints.CENTER;
+        
+        contrainteGrille.gridx = 2;
+        contrainteGrille.anchor = GridBagConstraints.WEST;
+        this.add(new JLabel("€"), contrainteGrille);
+        contrainteGrille.anchor = GridBagConstraints.CENTER;
         
         contrainteGrille.gridx = 0;
         contrainteGrille.gridy = 1;
-        this.add(new JLabel("par : "), contrainteGrille);        
+        this.add(new JLabel("                       par : ", JLabel.RIGHT), contrainteGrille);        
         
         //Boucle pour entrer les JRadioButton
         for (Duree d : Duree.values()) {
             durees.put(d, new JRadioButton(d.toString()));
             choixDurees.add(durees.get(d));
         }                
-        contrainteGrille.gridx = 1;
-        this.add(this.panelCheckBox);
+        contrainteGrille.gridx = 1;        
+        contrainteGrille.anchor = GridBagConstraints.WEST;
+        contrainteGrille.fill = GridBagConstraints.HORIZONTAL;
+//        this.panelCheckBox.setBorder(BorderFactory.createLineBorder(Color.black));
+        this.add(this.panelCheckBox, contrainteGrille);
         
         this.contrainteGrille.gridx = 0;
         this.contrainteGrille.gridy = 0;
@@ -87,6 +106,15 @@ public class InterfaceGui extends JFrame {
         
         this.contrainteGrille.gridx = 1;
         this.panelCheckBox.add(this.durees.get(Duree.Jour), contrainteGrille);
+
+        contrainteGrille.anchor = GridBagConstraints.CENTER;
+        this.panelCheckBox.setPreferredSize(new Dimension(this.inputSalaire.getPreferredSize().width, 55));
+        contrainteGrille.gridx = 0;
+        contrainteGrille.gridy = 2;
+        contrainteGrille.fill = GridBagConstraints.NONE;
+        contrainteGrille.gridwidth = 2;
+        contrainteGrille.anchor = GridBagConstraints.CENTER;
+        this.add(this.boutonGo, contrainteGrille);
         
         this.setSize(500, 400);        
         this.setVisible(true);
