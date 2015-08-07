@@ -9,6 +9,7 @@ import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
@@ -24,6 +25,10 @@ import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.border.Border;
+import javax.swing.event.AncestorEvent;
+import javax.swing.event.AncestorListener;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.plaf.BorderUIResource;
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -66,10 +71,10 @@ public class InterfaceGui extends JFrame {
         contrainteGrille.gridy = 0;
         contrainteGrille.weightx = 1.;
         contrainteGrille.weighty = 1.;
+        contrainteGrille.fill = GridBagConstraints.HORIZONTAL;
         this.add(new JLabel("Entrez le salaire : ", JLabel.RIGHT), contrainteGrille);
         
         contrainteGrille.gridx = 1;
-        contrainteGrille.anchor = GridBagConstraints.WEST;
         this.add(inputSalaire, contrainteGrille);
         contrainteGrille.anchor = GridBagConstraints.CENTER;
         
@@ -80,7 +85,7 @@ public class InterfaceGui extends JFrame {
         
         contrainteGrille.gridx = 0;
         contrainteGrille.gridy = 1;
-        this.add(new JLabel("                       par : ", JLabel.RIGHT), contrainteGrille);        
+        this.add(new JLabel("par : ", JLabel.RIGHT), contrainteGrille);        
         
         //Boucle pour entrer les JRadioButton
         for (Duree d : Duree.values()) {
@@ -88,11 +93,11 @@ public class InterfaceGui extends JFrame {
             choixDurees.add(durees.get(d));
         }                
         contrainteGrille.gridx = 1;        
-        contrainteGrille.anchor = GridBagConstraints.WEST;
-        contrainteGrille.fill = GridBagConstraints.HORIZONTAL;
+        contrainteGrille.insets = new Insets(30, 15, WIDTH, WIDTH);
 //        this.panelCheckBox.setBorder(BorderFactory.createLineBorder(Color.black));
         this.add(this.panelCheckBox, contrainteGrille);
-        
+        contrainteGrille.insets = new Insets(0, 0, 0, 0);
+
         this.contrainteGrille.gridx = 0;
         this.contrainteGrille.gridy = 0;
         this.panelCheckBox.add(this.durees.get(Duree.An), contrainteGrille);
@@ -112,7 +117,7 @@ public class InterfaceGui extends JFrame {
         contrainteGrille.gridx = 0;
         contrainteGrille.gridy = 2;
         contrainteGrille.fill = GridBagConstraints.NONE;
-        contrainteGrille.gridwidth = 2;
+        contrainteGrille.gridwidth = 3;
         contrainteGrille.anchor = GridBagConstraints.CENTER;
         this.add(this.boutonGo, contrainteGrille);
         
@@ -128,7 +133,14 @@ public class InterfaceGui extends JFrame {
     /**
      * Use it to put all componant's listeners.
      */
-    public void initActionListener() {
+    public void initActionListener() {       
+        this.boutonGo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                InterfaceGui.this.getUi();
+                System.out.println("Salaire :  " + InterfaceGui.this.moteur.getSalaire().getPay() + " par " + InterfaceGui.this.moteur.getSalaire().getTypeSalaire().toString());
+            }
+        });
     }
     
     //GETTERS
@@ -142,7 +154,8 @@ public class InterfaceGui extends JFrame {
                 moteur.getSalaire().setTypeSalaire(d);
             }
         }
-    }
+        moteur.getSalaire().setPay((double) this.inputSalaire.getValue());
+}
     
     //SETTERS
     /**
